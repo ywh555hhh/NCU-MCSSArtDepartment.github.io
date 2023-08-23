@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.header {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.glow-text {
+    font-size: 3rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about, .gallery {
+    margin-bottom: 2rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    color: white;
+}
