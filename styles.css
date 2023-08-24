@@ -33,3 +33,24 @@ body {
     background-color: #222;
     color: white;
 }
+.uniform-height {
+    height: 200px; /* 你可以根据需要调整高度值 */
+}
+
+.uniform-height24px{
+    height: 24px; /* 你可以根据需要调整高度值 */
+}
+
+
+     /* 定义默认链接样式 */
+ .custom-link {
+     color: #825ca3; /* 默认的蓝色 */
+     text-decoration: none; /* 默认的下划线 */
+     transition: color 0.8s; /* 添加颜色过渡效果 */
+ }
+
+/* 鼠标悬停时的链接样式 */
+.custom-link:hover {
+    color: #553076; /* 悬停时的红色 */
+    text-decoration: underline; /* 移除下划线，或者可以保留下划线效果 */
+}
