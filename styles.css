@@ -1,57 +1,272 @@
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
+.module-container-one{
+    width: 100%; /* 根据需要调整宽度 */
+    height: 800px;/* 根据需要调整高度 */
+    background: url('image/1400X800 网页端 背景1.svg') no-repeat center center;
+    background-size: cover; /* 根据需要调整背景尺寸 */
+    /* 可以在这里添加其他样式，比如内边距、边框等 */
 }
 
-.header {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
+/* 在小屏幕尺寸（移动端）应用的样式 */
+@media (max-width: 768px) {
+    .module-container-one{
+        width: 100%; /* 根据需要调整宽度 */
+        height: 1200px; /* 根据需要调整高度 */
+        background: url('image/_背景1 (1280 × 720, 像素) (720 × 1280, 像素).svg') no-repeat center center;
+        background-size: cover; /* 根据需要调整背景尺寸 */
+        /* 可以在这里添加其他样式，比如内边距、边框等 */
+    }
 }
 
-.glow-text {
-    font-size: 3rem;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-}
 
-.main {
-    max-width: 800px;
+.text-container {
+    position: relative;
+    width: 80%; /* 根据需要调整宽度 */
+    max-width: 600px; /* 根据需要调整最大宽度 */
     margin: 0 auto;
-    padding: 2rem;
-}
-
-.about, .gallery {
-    margin-bottom: 2rem;
-}
-
-.footer {
+    top: 20%;
+    transform: translateY(-50%);
     text-align: center;
-    padding: 1rem;
-    background-color: #222;
     color: white;
 }
 
-.uniform-height {
-    height: 200px; /* 你可以根据需要调整高度值 */
+.text-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-.uniform-height24px{
-    height: 24px; /* 你可以根据需要调整高度值 */
+.text-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+/*首个界面*/
+/* 添加以下样式来居中对齐SVG图像 */
+.center-svg {
+    display: grid;
+    place-items: center;
+    height: 100%; /* 或者你希望的高度 */
+    width: 100vw;
+}
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 
-     /* 定义默认链接样式 */
- .custom-link {
-     color: #825ca3; /* 默认的蓝色 */
-     text-decoration: none; /* 默认的下划线 */
-     transition: color 0.8s; /* 添加颜色过渡效果 */
- }
 
-/* 鼠标悬停时的链接样式 */
-.custom-link:hover {
-    color: #553076; /* 悬停时的红色 */
-    text-decoration: underline; /* 移除下划线，或者可以保留下划线效果 */
+/* 按钮 内容*/
+.buttons-container {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2
+}
+
+.scroll-button {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    /* 在这里添加其他样式，比如图标颜色、边框等 */
+}
+
+
+
+
+
+.text-container a:hover {
+    background-color: #0056b3;
+}
+/* styles.css */
+.space-between {
+    height: 200px; /* 调整间距的高度 */
+    background-color: transparent; /* 或者设置其他颜色 */
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+/* 浮现 文字*/
+
+.fade-container {
+    text-align: center; /* 居中文本 */
+    font-size: 24px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 3s ease, transform 3s ease;
+}
+
+.fade-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-container h2 {
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+/* 添加新的CSS规则 */
+.slide-text {
+    position: fixed;
+    top: 50%;
+    transform:translateX(-100%) translateY(-50%);
+    opacity: 0;
+    transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+}
+
+.slide-text.left {
+    left: -100%;
+}
+
+.slide-text.right {
+    right: -100%;
+}
+
+.slide-text.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/*card 文件内容*/
+.module-container-three {
+    position: relative; /* Change to relative positioning */
+    z-index: 1; /* Set a lower z-index value */
+    /* Your other styles for module three */
+}
+.card-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align cards vertically in the center */
+    width: 80%;
+    margin: 0 auto;
+}
+.card {
+    margin:10px 0;
+    width: 80%;
+    position: relative; /* 添加定位属性 */
+    z-index: 1; /* 设置较小的 z-index 值 */
+}
+.contact-icon {
+    height: 1.8em; /* 设置图标的高度为1em */
+    width: auto; /* 宽度会根据图标的宽高比自动调整 */
+}
+
+
+/* 轮播 内容*/
+.custom-carousel {
+    width: 80%;
+    margin: auto;
+}
+
+/* fqa 内容*/
+.faq-container {
+    width: 80%;
+    margin: 0 auto; /* 居中对齐 */
+}
+/* 更改按钮的文本颜色和背景颜色 */
+.accordion-button {
+    color: #ffffff; /* 按钮文本颜色 */
+    background-color: #0056b3; /* 按钮背景颜色 */
+}
+/* 更改折叠内容的背景颜色 */
+.accordion-body {
+    background-color: #cfe9ff; /* 折叠内容背景颜色 */
+}
+/* 更改标题文字颜色 */
+.accordion-header h2 {
+    color: #0056b3; /* 标题文字颜色 */
+}
+
+
+
+/*脚注 内容*/
+/* 设置脚注的背景颜色和文字颜色 */
+footer {
+    background-color: #85e3fd; /* 蓝色背景 */
+    color: #e9f8fd; /* 黑色文字颜色 */
+}
+
+/* 调整脚注容器的内边距和外边距 */
+footer .container {
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* 样式化脚注中的标题和段落 */
+footer h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+footer h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* 样式化联系信息 */
+footer .col-md-6 {
+    padding: 20px;
+}
+
+/* 样式化链接 */
+footer a {
+    color: #FF9800; /* 橙色链接颜色 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #FFC107; /* 鼠标悬停时的链接颜色 */
+}
+
+
+/*join us 按钮 */
+#joinButton {
+    position: fixed;
+    top: 30px;
+    left: 20%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.tooltip {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #711c1c;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.back2{
+    background-color: #86E5FF;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%235BC0F8'/%3E%3Cstop offset='1' stop-color='%2386E5FF'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%230081C9' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%230081C9' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
 }
