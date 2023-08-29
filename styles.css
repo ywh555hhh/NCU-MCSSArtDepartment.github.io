@@ -6,6 +6,17 @@
     /* 可以在这里添加其他样式，比如内边距、边框等 */
 }
 
+/* 在小屏幕尺寸（移动端）应用的样式 */
+@media (max-width: 768px) {
+    .module-container-one{
+        width: 100%; /* 根据需要调整宽度 */
+        height: 1200px; /* 根据需要调整高度 */
+        background: url('image/_背景1 (1280 × 720, 像素) (720 × 1280, 像素).svg') no-repeat center center;
+        background-size: cover; /* 根据需要调整背景尺寸 */
+        /* 可以在这里添加其他样式，比如内边距、边框等 */
+    }
+}
+
 
 .text-container {
     position: relative;
