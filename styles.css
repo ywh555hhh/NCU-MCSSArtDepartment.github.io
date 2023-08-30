@@ -1,6 +1,42 @@
+@keyframes breathe {
+    from {
+
+        opacity: 1;
+    }
+    to {
+
+        opacity: 0.2;
+    }
+}
+@font-face {
+    font-family: '1ZCoolFont';
+    src: url('fonts/ZCOOLXiaoWei-Regular.ttf') format('truetype');
+    /* 添加其他字体属性，如字重和样式 */
+}
+/*开始界面小按钮*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.fixed-button {
+    position: fixed;
+    bottom: 40%;
+    left:50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 201, 60, 0);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    z-index: 100;
+    animation: breathe 2s alternate infinite;
+}
+
+/* 设置页面样式 */
+
 .module-container-one{
     width: 100%; /* 根据需要调整宽度 */
-    height: 800px;/* 根据需要调整高度 */
+    height: 1200px;/* 根据需要调整高度 */
     background: url('image/01web-background.svg') no-repeat center center;
     background-size: cover; /* 根据需要调整背景尺寸 */
     /* 可以在这里添加其他样式，比如内边距、边框等 */
@@ -10,7 +46,7 @@
 @media (max-width: 768px) {
     .module-container-one{
         width: 100%; /* 根据需要调整宽度 */
-        height: 1200px; /* 根据需要调整高度 */
+        height: 600px; /* 根据需要调整高度 */
         background: url('image/01move-background1.svg') no-repeat center center;
         background-size: cover; /* 根据需要调整背景尺寸 */
         /* 可以在这里添加其他样式，比如内边距、边框等 */
@@ -23,7 +59,7 @@
     width: 80%; /* 根据需要调整宽度 */
     max-width: 600px; /* 根据需要调整最大宽度 */
     margin: 0 auto;
-    top: 20%;
+    top: 10%;
     transform: translateY(-50%);
     text-align: center;
     color: white;
@@ -40,6 +76,16 @@
 }
 /*首个界面*/
 /* 添加以下样式来居中对齐SVG图像 */
+.span-line{
+    font-family: "1ZCoolFont", serif;
+    background: linear-gradient(to right,#85e3fd, #faebd7) no-repeat right bottom;
+    background-size: 0 2px ;
+    transition:background-size 1.2s;
+}
+.span-line:hover{
+    background-position-x: left;
+    background-size: 100% 2px;
+}
 .center-svg {
     display: grid;
     place-items: center;
@@ -101,7 +147,7 @@
 
 .fade-container {
     text-align: center; /* 居中文本 */
-    font-size: 24px;
+    font-size: 48px;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 3s ease, transform 3s ease;
@@ -114,7 +160,7 @@
 
 .fade-container h2 {
     margin: 20px 0;
-    font-size: 24px;
+    font-size: 50px;
 }
 
 /* 添加新的CSS规则 */

@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
     <!-- 引入自定义脚本 -->
     <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sour+Sans&display=swap">
     <!-- 页面标题 -->
     <title>文艺妙妙屋 - 创意之旅</title>
     <!-- 在 <head> 部分添加以下代码 -->
@@ -26,11 +27,12 @@
 <body>
 
 
+
+
 <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=L_JGs8fu-q4aEs8JFRVPQipatMrnhqAs&authKey=yyvkyXh4SSMasjRlTcwtBYFp5Rz2ZQ5rYtgrYbubXjd7f9X47YtTFrnpAUr03HS6&noverify=0&group_code=894034959">
     <button id="joinButton">JOIN US</button>
 </a>
 <div class="tooltip" id="tooltip">更详细dsdfaa fsfs的信息在这里...</div>
-
 <div class="buttons-container">
     <button class="scroll-button" data-target="#one">
         <!-- 在这里添加您的 SVG 图标代码 -->
@@ -45,25 +47,27 @@
         <!-- 在这里添加您的 SVG 图标代码 -->
     </button>
 </div> <!-- 出现的文字 -->
-
 <div class="module-container-one" id="one">
+    <button class="fixed-button" id="myButton">
+        <img src="image/botton/mybottondown.svg" alt="SVG Button"  >
+    </button>
     <div class="flex-container">
         <div class="center-svg ">
-        <!-- 这里插入你的 SVG 图片 -->
             <img src="image/05artdepartment.svg" alt="SVG Image">
         </div >
     </div>
     <div class="flex-container">
         <div class="text-container">
-        <h1>欢迎你来到！文艺妙妙屋</h1>
-        <p>快来了解一下 这个 自诩有趣的 部门</p>
-
+            <p><span class="span-line">快来了解这个自诩有趣的部门吧</span></p>
+        </div>
+        <div id="01buttonContainer">
+            <div id="01myButton"></div>
         </div>
     </div>
 </div>
 <div class="space-between"></div>
 <div class="back2">
-    <div class="space-between"></div>
+    <div class="space-between" id="module-begin"></div>
     <div class="module-container-two" id="two">
     <div class="module-container-two">
         <div class="space-between"></div>
@@ -123,7 +127,7 @@
                         外号：嘉慧哥
                         </h5>
                     <!-- 班级 -->
-                    <p class="card-text">计算机227</p>
+                    <p class="card-text">计算机222</p>
                     <!-- 个人介绍 -->
                     <p class="card-text">兴趣爱好：美食美景凑热闹，唱歌跳舞会一点</p>
                     <div class="d-flex justify-content-start align-items-center">
