@@ -86,7 +86,76 @@ document.addEventListener("DOMContentLoaded", function() {
             scrollButtons.forEach(button => {
                 button.style.transition = 'opacity 1s ease-in-out';
                 button.style.opacity = '1';
+                button.classList.add('button-animation')
             });
         }, 3000);
+
+        function toggleButtonVisibility() {
+            // 显示按钮
+            joinButton.style.transition = 'opacity 1s ease-in-out';
+            joinButton.style.opacity = '1';
+
+            // 过渡消失
+            setTimeout(() => {
+                joinButton.style.transition = 'opacity 1s ease-in-out';
+                joinButton.style.opacity = '0';
+
+                // 持续隐藏
+                setTimeout(() => {
+                    joinButton.style.transition = 'opacity 1s ease-in-out';
+                    joinButton.style.opacity = '0';
+
+                    // 循环
+                    setTimeout(() => {
+                        toggleButtonVisibility();
+                    }, 7000); // 7秒后重新出现
+                }, 5000); //5秒后持续隐藏
+            }, 7000); // 7秒后过渡消失
+        }
+
+        // 调用循环函数开始循环
+        toggleButtonVisibility();
     });
 });
+
+//debug 每次刷新后应该回到最头上
+window.onload = function() {
+    // 将视窗滚动位置回到锚点的位置
+    window.location.hash = "#one";
+};
+
+const tabs = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('.section');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', (event) => {
+        event.preventDefault(); // 阻止默认的链接行为
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const targetSectionId = tab.getAttribute('href');
+        sections.forEach(section => {
+            if (`#${section.id}` === targetSectionId) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    });
+});
+
+//针对不同设备返回不同链接
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// 获取链接元素
+const qqLink = document.getElementById('qq-link-1');
+
+// 设置不同设备的链接
+if (isMobileDevice()) {
+    qqLink.href = 'https://qm.qq.com/q/62cHpxNbSo';
+} else {
+    qqLink.href = 'tencent://message/?uin=1916647616&Site=qq&Menu=yes';
+}
+

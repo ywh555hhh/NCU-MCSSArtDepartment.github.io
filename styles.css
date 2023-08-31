@@ -8,9 +8,29 @@
         opacity: 0.2;
     }
 }
+@keyframes breathe-button {
+    0%, 20% {
+        transform:translateY(-10%) scale(0.9);
+        opacity: 0; /* 百分之0 到 百分之二十，透明度为0，消失 */
+    }
+    50% {
+        transform:translateY(5%) scale(1.1);
+        opacity: 0.8; /* 百分之五十，完全显现 */
+    }
+    80%, 100% {
+        transform:translateY(-10%) scale(0.9);
+        opacity: 0; /* 百分之八十到百分之百，透明度为0，消失 */
+    }
+}
+
 @font-face {
     font-family: '1ZCoolFont';
     src: url('fonts/ZCOOLXiaoWei-Regular.ttf') format('truetype');
+    /* 添加其他字体属性，如字重和样式 */
+}
+@font-face {
+    font-family: '2source';
+    src: url('fonts/SourceHanSansSC-Regular-2.otf') format('truetype');
     /* 添加其他字体属性，如字重和样式 */
 }
 /*开始界面小按钮*/
@@ -21,9 +41,9 @@ body {
 
 .fixed-button {
     position: fixed;
-    bottom: 40%;
+    bottom: 60%;
     left:50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(90%);
     background-color: rgba(255, 201, 60, 0);
     border: none;
     cursor: pointer;
@@ -36,7 +56,7 @@ body {
 
 .module-container-one{
     width: 100%; /* 根据需要调整宽度 */
-    height: 1200px;/* 根据需要调整高度 */
+    height: 60%;/* 根据需要调整高度 */
     background: url('image/01web-background.svg') no-repeat center center;
     background-size: cover; /* 根据需要调整背景尺寸 */
     /* 可以在这里添加其他样式，比如内边距、边框等 */
@@ -46,21 +66,37 @@ body {
 @media (max-width: 768px) {
     .module-container-one{
         width: 100%; /* 根据需要调整宽度 */
-        height: 600px; /* 根据需要调整高度 */
+        height: 90%; /* 根据需要调整高度 */
         background: url('image/01move-background1.svg') no-repeat center center;
         background-size: cover; /* 根据需要调整背景尺寸 */
         /* 可以在这里添加其他样式，比如内边距、边框等 */
     }
 }
-
+.first-vw{
+    width:100vw;
+    height: 100vh;
+}
+.first-pic{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    bottom: 0;
+}
+@media (max-width: 768px){
+    .first-pic{
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 
 .text-container {
     position: relative;
     width: 80%; /* 根据需要调整宽度 */
     max-width: 600px; /* 根据需要调整最大宽度 */
-    margin: 0 auto;
-    top: 10%;
-    transform: translateY(-50%);
+    margin-top: 10px ;
+    transform: translateY(-200%);
     text-align: center;
     color: white;
 }
@@ -87,18 +123,16 @@ body {
     background-size: 100% 2px;
 }
 .center-svg {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     place-items: center;
     height: 100%; /* 或者你希望的高度 */
     width: 100vw;
 }
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+.center-svg img {
+    position: relative;
+    top: 0;
 }
-
-
 
 /* 按钮 内容*/
 .buttons-container {
@@ -109,17 +143,25 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    z-index: 2
+    z-index: 1000
 }
-
+.scroll-button-img{
+    width: 100%;
+    height: 100%;
+}
 .scroll-button {
     width: 40px;
     height: 40px;
-    background-color: #333;
+    background-color: rgba(18, 150, 219, 0.45);
     border: none;
     border-radius: 50%;
     cursor: pointer;
     /* 在这里添加其他样式，比如图标颜色、边框等 */
+
+}
+
+.button-animation{
+    animation: breathe-button 12s infinite;
 }
 
 
@@ -131,7 +173,7 @@ body {
 }
 /* styles.css */
 .space-between {
-    height: 200px; /* 调整间距的高度 */
+    height: 10px; /* 调整间距的高度 */
     background-color: transparent; /* 或者设置其他颜色 */
 }
 
@@ -147,7 +189,7 @@ body {
 
 .fade-container {
     text-align: center; /* 居中文本 */
-    font-size: 48px;
+    font-size:12px;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 3s ease, transform 3s ease;
@@ -160,32 +202,66 @@ body {
 
 .fade-container h2 {
     margin: 20px 0;
-    font-size: 50px;
+    color: #e9f8fd;
+    font-family: "1ZCoolFont", serif;
+    font-size: 42px;
 }
-
-/* 添加新的CSS规则 */
-.slide-text {
-    position: fixed;
-    top: 50%;
-    transform:translateX(-100%) translateY(-50%);
-    opacity: 0;
-    transition: transform 2s ease-in-out, opacity 2s ease-in-out;
-}
-
-.slide-text.left {
-    left: -100%;
-}
-
-.slide-text.right {
-    right: -100%;
-}
-
-.slide-text.active {
-    transform: translateX(0);
+.span-good{
+    background: rgb(88, 167, 243,0.8);
+    color:white ;
+    text-shadow: 3px 3px 0 #1c1b1b; /* 单侧阴影效果 */
+    display: inline-block;
+    padding: 20px;
+    border-radius: 30px; /* 圆角矩形的边角半径 */
     opacity: 1;
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.5);
 }
 
 
+/*部门简介卡片*/
+.new-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
+}
+/* 自定义导航选项卡样式 */
+.nav-tabs.card-header-tabs {
+    font-family: "1ZCoolFont", serif;
+    color: #1c1b1b;
+    display: flex;
+    justify-content: space-between; /* 平均分配空间 */
+    width: 100%; /* 让导航占满卡片宽度 */
+    border: #711c1c; /* 移除默认边框 */
+    background-color: transparent; /* 移除默认背景色 */
+}
+
+.nav-item {
+    flex: 1; /* 让每个导航选项平均分配宽度 */
+    text-align: center; /* 文字居中 */
+}
+
+.nav-link {
+    border: none; /* 移除导航链接的边框 */
+    padding: 0.5rem 1rem; /* 自定义间距 */
+}
+
+.nav-link.active {
+    /* 添加选中样式 */
+    background-color: #f8f9fa; /* 自定义背景色 */
+    border-radius: 0.25rem; /* 添加圆角边框 */
+}
+
+.span-card{
+    font-family: "1ZCoolFont", serif;
+    background: linear-gradient(to right, #4fb4f3, #85e3fd) no-repeat right bottom;
+    background-size: 0 1px ;
+    transition:background-size 0.8s;
+}
+.span-card:hover{
+    background-position-x: left;
+    background-size: 100% 1px;
+}
 /*card 文件内容*/
 .module-container-three {
     position: relative; /* Change to relative positioning */
@@ -200,6 +276,8 @@ body {
     margin: 0 auto;
 }
 .card {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4), 0 6px 7px rgba(0, 0, 0, 0.4);
+    font-family: "1ZCoolFont", serif;
     margin:10px 0;
     width: 80%;
     position: relative; /* 添加定位属性 */
@@ -210,20 +288,33 @@ body {
     width: auto; /* 宽度会根据图标的宽高比自动调整 */
 }
 
+/* 调整轮播的位置和宽度 */
+.carousel {
+    border-radius: 18px;
+
+    overflow: hidden; /* 确保阴影不会溢出 */
+    width: 95%;
+    margin: 0 auto;
+}
 
 /* 轮播 内容*/
 .custom-carousel {
     width: 80%;
     margin: auto;
 }
-
 /* fqa 内容*/
 .faq-container {
     width: 80%;
     margin: 0 auto; /* 居中对齐 */
 }
+.accordion-collapse{
+    font-family: "1ZCoolFont", serif;
+    font-size: medium;
+}
 /* 更改按钮的文本颜色和背景颜色 */
 .accordion-button {
+    font-size: 30px;
+    font-family: "1ZCoolFont", serif;
     color: #ffffff; /* 按钮文本颜色 */
     background-color: #0056b3; /* 按钮背景颜色 */
 }
@@ -235,8 +326,6 @@ body {
 .accordion-header h2 {
     color: #0056b3; /* 标题文字颜色 */
 }
-
-
 
 /*脚注 内容*/
 /* 设置脚注的背景颜色和文字颜色 */
@@ -286,34 +375,55 @@ footer a:hover {
 
 /*join us 按钮 */
 #joinButton {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    font-family: "1ZCoolFont", serif;
     position: fixed;
-    top: 30px;
-    left: 20%;
+    top: 12px;
+    left: 14%;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
     transform: translateX(-50%);
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #0258f8 ;
     color: #fff;
     border: none;
     cursor: pointer;
     z-index: 200;
 }
 
-.tooltip {
+.my-svg-button{
+    opacity: 1;
     position: absolute;
-    top: 40px;
     left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #711c1c;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
+    transform: translateX(-50%) translateY(50%);
+    bottom: 50%;
+
 }
 
-.back2{
-    background-color: #86E5FF;
-    background-image:url("image/03background.svg") ;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+.back2 {
+    background-color: #ecfcfd;
+    background-image: url("image/07svgbackground.svg");
+    background-attachment:scroll;
+    background-repeat: repeat;
+}
+
+/* 在较小的屏幕上，调整背景尺寸和位置 */
+@media (max-width: 768px) {
+    .back2 {
+        background-size: contain;
+        background-position: center;
+    }
+}
+
+
+
+.custom-link{
+    color: #0081c9; /* 超链接文字颜色 */
+    text-decoration: none; /* 去除下划线 */
+    transition: color 0.3s; /* 添加颜色变化的过渡效果 */
+}
+.custom-link:hover{
+    color: #86e5ff; /* 鼠标悬停时的文字颜色 */
+    text-decoration: underline; /* 鼠标悬停时显示下划线 */
 }
