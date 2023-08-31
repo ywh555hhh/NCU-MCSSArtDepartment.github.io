@@ -152,6 +152,7 @@ body {
 .scroll-button {
     width: 40px;
     height: 40px;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.7);
     background-color: rgba(18, 150, 219, 0.45);
     border: none;
     border-radius: 50%;
