@@ -331,8 +331,9 @@ body {
 /*脚注 内容*/
 /* 设置脚注的背景颜色和文字颜色 */
 footer {
+    font-family: "1ZCoolFont", serif;
     background-color: #85e3fd; /* 蓝色背景 */
-    color: #e9f8fd; /* 黑色文字颜色 */
+    color: #000000; /* 黑色文字颜色 */
 }
 
 /* 调整脚注容器的内边距和外边距 */
@@ -362,16 +363,6 @@ footer .col-md-6 {
     padding: 20px;
 }
 
-/* 样式化链接 */
-footer a {
-    color: #FF9800; /* 橙色链接颜色 */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #FFC107; /* 鼠标悬停时的链接颜色 */
-}
 
 
 /*join us 按钮 */
